@@ -9,12 +9,10 @@ import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.AuthException;
 
 /**
- * This class receives the user's credentials and authenticates him/her against
- * the Liferay Database. It imitates the normal internal authentication mechanism
- * of the Liferay platform that is executed when the property 
- * auth.pipeline.enable.liferay.check is set to true.
+ * This class is a dummy Authenticator class that always returns FAILURE (i.e. -1 value).
+ * Attention: If you add this class to your Custom Authentication System the access will
+ * be denied to everyone, even to those providing their valid credentials.
  */
-//TODO: LOG FILES!!!
 
 import com.liferay.portal.security.auth.Authenticator;
 import com.liferay.portal.service.persistence.UserUtil;

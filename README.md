@@ -144,7 +144,7 @@ In brief:
   
   - Start your Liferay Portal instance.
   
-<h3> Usage </h3>
+<h3> C. Usage </h3>
  
 The users should first create an account in your Liferay Portal instance in order to be authenticated via Github. This is necessary because
 only the password user validation is performed via Github. No user information, apart from username and password, is exchanged between Github and Liferay. (It is not an SSO application after all :P).

@@ -25,7 +25,7 @@ A detailed documentation of the Liferay *Authentication Pipeline* and the *Custo
 
 In brief the general *Authentication Pipeline* of Liferay Portal is depicted in the figure below:
 
- <p align="center">
+ <p align="center" width="624" height="661">
 	<img align="center" src="/authentication-pipeline.png" />
  </p>
 
@@ -55,7 +55,7 @@ which corresponds to the Liferay internal authentication. However, you can easil
  
  4. Bypass the internal authentication mechanism (second step of the *Authentication Pipeline*).
  
-**Attention:** The last two steps are performed by defining the appropriate properties of the **portal-ext.properties file. For more information on 
+**Attention:** The last two steps are performed by defining the appropriate properties of the *"portal-ext.properties"* file. For more information on 
 how to edit this file see the next section.
  
 A useful tutorial on how to create custom Authenticator classes can be found [here](https://web.liferay.com/community/wiki/-/wiki/Main/Developing+a+Custom+Authentication+System).
@@ -75,7 +75,6 @@ found inside the target folder of this repository.
  
  ```
  path/to/liferay-portal-6.2.0-ce-ga1/tomcat-7.0.42/lib/ext
- 
  ```
  
  3. Paste the .jar file containing the custom Authenticator classes inside this folder (along with the other jar files which are necessary for the GithubAuthenticator.java and can be found inside the *target* folder of this repository).

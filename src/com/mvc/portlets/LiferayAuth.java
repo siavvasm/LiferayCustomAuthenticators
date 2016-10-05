@@ -18,9 +18,6 @@ import com.liferay.portal.service.PasswordTrackerLocalServiceUtil;
  * of the Liferay platform that is executed when the property 
  * auth.pipeline.enable.liferay.check is set to true.
  */
-//TODO: LOG FILES!!!
-
-
 public class LiferayAuth implements Authenticator{
 
 	@Override
@@ -91,8 +88,6 @@ public class LiferayAuth implements Authenticator{
 		}
 		
 		//Provided that the user exists, check if the password is correct
-		//String encPsw = PwdEncryptor.encrypt(password, user.getPassword());
-		
 		String psw = user.getPassword();
 		String upsw = user.getPasswordUnencrypted();
 		
@@ -101,7 +96,7 @@ public class LiferayAuth implements Authenticator{
 		System.out.println("Stored Password Unencrypted : " + upsw);
 		
 		
-		// Check if the password is valid ...
+		//Validate the user's password
 		boolean valid = PasswordTrackerLocalServiceUtil.isSameAsCurrentPassword(user.getUserId(), password);
 		System.out.println("VALID = " + valid);
 		
@@ -111,7 +106,7 @@ public class LiferayAuth implements Authenticator{
 			return FAILURE;
 		}
 		
-		//If I reach this point, the user is successfully authenticated
+		//The user is successfully authenticated
 		System.out.println("The passwords match!");
 		System.out.println("The user successfully authenticated!");
 		return SUCCESS;

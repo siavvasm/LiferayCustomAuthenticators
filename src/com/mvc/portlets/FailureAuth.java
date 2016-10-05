@@ -9,9 +9,7 @@ import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.AuthException;
 
 /**
- * This class is a dummy Authenticator class that always returns FAILURE (i.e. -1 value).
- * Attention: If you add this class to your Custom Authentication System the access will
- * be denied to everyone, even to those providing their valid credentials.
+ * A dummy Authenticator class that always returns FAILURE (i.e. -1).
  */
 
 import com.liferay.portal.security.auth.Authenticator;

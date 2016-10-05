@@ -23,7 +23,7 @@ that may be directly deployed and used.
 
 A detailed documentation of the Liferay *Authentication Pipeline* and the *Custom Authentication System (CAS)* can be found [here](https://web.liferay.com/community/wiki/-/wiki/Main/Liferay+Authentation+Process) and [here](https://web.liferay.com/community/wiki/-/wiki/Main/Developing+a+Custom+Authentication+System).
 
-In brief the general *Authentication Pipeline* of Liferay Portal is depicted in the figure below:
+In brief the general *Authentication Pipeline* of the Liferay Portal is depicted in the figure below:
 
  <p align="center" width="624" height="661">
 	<img align="center" src="/authentication-pipeline.png" />
@@ -77,7 +77,7 @@ found inside the target folder of this repository.
  path/to/liferay-portal-6.2.0-ce-ga1/tomcat-7.0.42/lib/ext
  ```
  
- 3. Paste the .jar file containing the custom Authenticator classes inside this folder (along with the other jar files which are necessary for the GithubAuthenticator.java and can be found inside the *target* folder of this repository).
+ 3. Paste the .jar file containing the custom Authenticator classes inside this folder (along with the other .jar files which are necessary for the GithubAuthenticator.java and can be found inside the *target* folder of this repository).
  
  4. Go back to the tomcat directory and navigate to webapps/ROOT/WEB-INF/classes. In particular, the exact path should look like the following:
  
@@ -146,7 +146,7 @@ In brief:
 <h3> C. Usage </h3>
  
 The users should first create an account in your Liferay Portal instance in order to be authenticated via Github. This is necessary because
-only the password user validation is performed via Github. No user information, apart from username and password, is exchanged between Github and Liferay. (It is not an SSO application after all :P).
+only the password validation is performed via Github. No user information, apart from username and password, is exchanged between Github and Liferay. (It is not an SSO application after all :P).
 As a result, the users should define their name and their email address in order to be identified internally.
  
 The steps are simple:

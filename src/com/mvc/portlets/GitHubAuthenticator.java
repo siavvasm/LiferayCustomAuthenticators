@@ -18,14 +18,10 @@ import com.liferay.portal.service.persistence.UserUtil;
 import com.liferay.portal.service.PasswordTrackerLocalServiceUtil;
 
 /**
- * This class receives the user's credentials and authenticates him/her against
- * the Liferay Database. It imitates the normal internal authentication mechanism
- * of the Liferay platform that is executed when the property 
- * auth.pipeline.enable.liferay.check is set to true.
+ * This class is a custom Authenticator class that allows the users of a 
+ * Liferay Portal instance to be authenticated via Github API. In particular,
+ * it leverages the Basic Authentication protocol for this purpose.
  */
-//TODO: LOG FILES!!!
-//TODO: Create a separate Class for GitHub Authentication
-
 
 public class GitHubAuthenticator implements Authenticator{
 
@@ -74,8 +70,6 @@ public class GitHubAuthenticator implements Authenticator{
 	
 	protected int authenticate(long companyId, String emailAddress, String screenName, long userId, String password) throws Exception {
 		
-		//Search for the user (Check if the user exists)
-		//Useless - Liferay checks automatically if there is such a profile in its Database
 		User user = null;
 		
 		try{
@@ -90,13 +84,11 @@ public class GitHubAuthenticator implements Authenticator{
 				System.out.println("The user doesn't exist locally!");
 				return Authenticator.DNE;
 			}
+			
 		}catch(NoSuchUserException nsue){
 			System.out.println("The user doesn't exist!");
 			return Authenticator.DNE;
 		}
-		
-		//Provided that the user exists, check if the password is correct
-		//String encPsw = PwdEncryptor.encrypt(password, user.getPassword());
 		
 		System.out.println("Authentication via GitHub...");
 		System.out.println("Given Username : " + screenName);
@@ -123,14 +115,14 @@ public class GitHubAuthenticator implements Authenticator{
 				
 		boolean valid = true;
 		
-		//Create a client in order to communicate with GitHub - Basic Authentication will be used
+		//Create a client in order to communicate with GitHub API - (Basic Authentication)
 		RepositoryService service = new RepositoryService();
 		service.getClient().setCredentials(username, password);
+		
 		//Send a simple request to the API
 		try {
 			List<Repository> repositories = service.getRepositories();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			//e.printStackTrace();
 			valid = false;
 		}
